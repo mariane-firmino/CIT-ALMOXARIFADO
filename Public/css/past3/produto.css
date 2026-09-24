@@ -1,0 +1,460 @@
+/* ==========================================================
+   Tela: Controlar Produto
+   Prefixo único: cprod-   (nenhum seletor de tag nesta folha)
+   O que era global (sidebar, footer, body, reset) NÃO fica aqui:
+   mantenha em css do layout (cit-menu / site-footer / base).
+   ========================================================== */
+
+.cprod-container {
+    --cprod-verde: #109e8c;
+    --cprod-verde-escuro: #0a7f70;
+    --cprod-texto: #13231d;
+    --cprod-texto-suave: #4f6b63;
+    --cprod-borda: #d0ddd8;
+    --cprod-fundo-card: #ffffff;
+
+    padding: 36px 48px 90px;
+    color: var(--cprod-texto);
+    font-family: 'Inria Sans', sans-serif;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.cprod-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.cprod-titulo-linha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.cprod-titulo-marca {
+    width: 6px;
+    height: 48px;
+    border-radius: 4px;
+    background: var(--cprod-verde);
+}
+
+.cprod-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.cprod-subtitulo {
+    margin: 0;
+    max-width: 760px;
+    color: #2b3e35;
+    font-size: 20px;
+    line-height: 1.45;
+}
+
+.cprod-logo {
+    width: 144px;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* ---------- Mensagens ---------- */
+
+.cprod-alerta {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.cprod-alerta-sucesso {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.cprod-alerta-erro {
+    background: #ffe5e5;
+    color: #b42318;
+}
+
+/* ---------- Busca e filtros ---------- */
+
+.cprod-filtros {
+    display: grid;
+    grid-template-columns: minmax(240px, 2fr) minmax(160px, 1fr) minmax(160px, 1fr) auto;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.cprod-busca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    height: 48px;
+    padding: 0 14px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.cprod-busca-icone {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.cprod-busca-campo {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    font-family: inherit;
+    color: inherit;
+}
+
+.cprod-select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid var(--cprod-borda);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--cprod-texto);
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.cprod-btn-buscar {
+    height: 48px;
+    padding: 0 28px;
+    border: none;
+    border-radius: 12px;
+    background: var(--cprod-verde);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.cprod-btn-buscar:hover {
+    background: var(--cprod-verde-escuro);
+}
+
+.cprod-busca:focus-within,
+.cprod-select:focus-visible,
+.cprod-btn-buscar:focus-visible {
+    outline: 2px solid var(--cprod-verde);
+    outline-offset: 2px;
+}
+
+/* ---------- Grade de cards ---------- */
+
+.cprod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.cprod-card {
+    background: var(--cprod-fundo-card);
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cprod-card-imagem {
+    position: relative;
+    height: 145px;
+    background: #d9d9d9;
+    border-radius: 16px 16px 0 0;
+}
+
+.cprod-foto {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.cprod-info {
+    padding: 20px 16px 16px;
+}
+
+.cprod-nome {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.cprod-detalhe {
+    margin: 0;
+    color: var(--cprod-texto-suave);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ---------- Status ---------- */
+
+.cprod-status {
+    position: absolute;
+    left: 12px;
+    bottom: -10px;
+    z-index: 2;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cprod-status-ok {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.cprod-status-baixo {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.cprod-status-esgotado {
+    background: #ffe5e5;
+    color: #d9534f;
+}
+
+/* ---------- Menu de ações (details/summary, sem JS) ---------- */
+
+.cprod-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.cprod-menu-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: #222;
+    font-size: 22px;
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cprod-menu-botao::-webkit-details-marker {
+    display: none;
+}
+
+.cprod-menu-botao:focus-visible {
+    outline: 2px solid var(--cprod-verde);
+    outline-offset: 2px;
+}
+
+.cprod-menu-lista {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    min-width: 170px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cprod-menu-form {
+    margin: 0;
+}
+
+.cprod-menu-item {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    color: var(--cprod-texto);
+    font-size: 14px;
+    font-family: inherit;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cprod-menu-item:hover,
+.cprod-menu-item:focus-visible {
+    background: #f2f2f2;
+}
+
+.cprod-menu-item-perigo {
+    color: #d9534f;
+}
+
+/* ---------- Estado vazio ---------- */
+
+.cprod-vazio {
+    grid-column: 1 / -1;
+    padding: 48px 16px;
+    text-align: center;
+    color: var(--cprod-texto-suave);
+    font-size: 18px;
+}
+
+/* ---------- Rodapé da lista / paginação ---------- */
+
+.cprod-rodape-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.cprod-rodape-info {
+    margin: 0;
+    color: var(--cprod-texto-suave);
+    font-size: 14px;
+}
+
+.cprod-paginacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.cprod-pag-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--cprod-borda);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--cprod-texto);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cprod-pag-link:hover {
+    border-color: var(--cprod-verde);
+}
+
+.cprod-pag-link:focus-visible {
+    outline: 2px solid var(--cprod-verde);
+    outline-offset: 2px;
+}
+
+.cprod-pag-link-ativa {
+    border-color: var(--cprod-verde);
+    background: var(--cprod-verde);
+    color: #fff;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1280px) {
+    .cprod-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cprod-filtros {
+        grid-template-columns: minmax(240px, 1fr) 180px 180px auto;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cprod-container {
+        padding: 30px 24px 70px;
+    }
+
+    .cprod-logo {
+        width: 120px;
+    }
+
+    .cprod-filtros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cprod-busca {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .cprod-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .cprod-subtitulo {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cprod-container {
+        padding: 20px 15px 60px;
+    }
+
+    .cprod-logo {
+        width: 90px;
+    }
+
+    .cprod-filtros {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .cprod-busca {
+        grid-column: auto;
+    }
+
+    .cprod-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .cprod-card-imagem {
+        height: 180px;
+    }
+
+    .cprod-subtitulo {
+        font-size: 16px;
+    }
+
+    .cprod-rodape-lista {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cprod-btn-buscar {
+        transition: none;
+    }
+}

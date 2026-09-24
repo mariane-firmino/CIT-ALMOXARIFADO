@@ -1,0 +1,143 @@
+/* ==========================================================
+   Cabeçalho das páginas - CIT Almoxarifado
+   (antes misturado com o CSS do menu)
+   ========================================================== */
+
+.cit-conteudo {
+    padding: 36px;
+}
+
+.cit-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.cit-cabecalho__grupo {
+    flex: 1;
+    min-width: 0;
+}
+
+.cit-cabecalho__linha {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cit-cabecalho__marca {
+    width: 6px;
+    height: 48px;
+    border-radius: 6px;
+    background: #109e8c;
+}
+
+.cit-cabecalho__titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(32px, 2.4vw, 40px);
+    font-weight: 700;
+    color: #13231d;
+}
+
+.cit-cabecalho__subtitulo {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #3c5248;
+}
+
+.cit-cabecalho__logo {
+    width: 140px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1400px) {
+    .cit-conteudo {
+        padding: 32px;
+    }
+
+    .cit-cabecalho__logo {
+        width: 130px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cit-conteudo {
+        padding: 28px;
+    }
+
+    .cit-cabecalho {
+        align-items: flex-start;
+    }
+
+    .cit-cabecalho__logo {
+        width: 115px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cit-conteudo {
+        padding: 22px;
+    }
+
+    .cit-cabecalho {
+        gap: 15px;
+    }
+
+    .cit-cabecalho__logo {
+        width: 100px;
+    }
+
+    .cit-cabecalho__titulo {
+        font-size: 30px;
+    }
+
+    .cit-cabecalho__subtitulo {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cit-conteudo {
+        padding: 16px;
+    }
+
+    .cit-cabecalho {
+        gap: 12px;
+    }
+
+    .cit-cabecalho__linha {
+        gap: 10px;
+    }
+
+    .cit-cabecalho__marca {
+        height: 36px;
+    }
+
+    .cit-cabecalho__logo {
+        width: 85px;
+    }
+
+    .cit-cabecalho__titulo {
+        font-size: 26px;
+    }
+
+    .cit-cabecalho__subtitulo {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    .cit-cabecalho__logo {
+        width: 72px;
+    }
+
+    .cit-cabecalho__titulo {
+        font-size: 23px;
+    }
+
+    .cit-cabecalho__subtitulo {
+        font-size: 13px;
+    }
+}

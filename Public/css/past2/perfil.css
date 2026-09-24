@@ -1,0 +1,351 @@
+/* ============================================================
+   PERFIL — CSS exclusivo da página (prefixo .perfil-)
+   Nenhuma estilização por tag: apenas classes.
+   ============================================================ */
+
+.perfil-page {
+    --perfil-verde: #109e8c;
+    --perfil-texto: #14221f;
+    --perfil-texto-suave: #5a6a60;
+    --perfil-card: #ffffff;
+    --perfil-borda: #d8dedb;
+
+    padding: 35px;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.perfil-page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.perfil-page__title-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.perfil-page__title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.perfil-page__title-mark {
+    width: 6px;
+    height: 45px;
+    border-radius: 5px;
+    background: var(--perfil-verde);
+}
+
+.perfil-page__title {
+    margin: 0;
+    font-family: 'Inter', 'Inria Sans', sans-serif;
+    font-size: clamp(26px, 2.4vw, 40px);
+    font-weight: 700;
+    color: #13231d;
+}
+
+.perfil-page__subtitle {
+    margin: 10px 0 0;
+    font-size: 18px;
+    color: var(--perfil-texto-suave);
+}
+
+.perfil-page__logo {
+    width: 140px;
+    max-width: 100%;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+/* ---------- Card ---------- */
+
+.perfil-card {
+    background: var(--perfil-card);
+    border-radius: 22px;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.perfil-card__titulo {
+    margin: 0 0 25px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--perfil-texto);
+}
+
+.perfil-card__grid {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 35px;
+}
+
+.perfil-erro {
+    margin: 0;
+    font-size: 16px;
+    color: var(--perfil-texto-suave);
+}
+
+/* ---------- Coluna da foto ---------- */
+
+.perfil-lateral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.perfil-lateral__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #eef6f2;
+}
+
+.perfil-lateral__acoes {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ---------- Botões ---------- */
+
+.perfil-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 14px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.perfil-btn--primario {
+    background: var(--perfil-verde);
+    color: #ffffff;
+}
+
+.perfil-btn--primario:hover {
+    background: #0a7f70;
+}
+
+.perfil-btn--secundario {
+    background: var(--perfil-card);
+    border-color: #ccc;
+    color: var(--perfil-verde);
+}
+
+.perfil-btn--secundario:hover {
+    background: #eaf7f4;
+}
+
+/* ---------- Lista de dados ---------- */
+
+.perfil-dados {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.perfil-dados__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    min-width: 0;
+}
+
+.perfil-dados__icone-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.perfil-dados__icone {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.perfil-dados__texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.perfil-dados__label {
+    margin: 0;
+    font-size: 14px;
+    color: var(--perfil-texto-suave);
+}
+
+.perfil-dados__valor {
+    margin: 5px 0 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--perfil-texto);
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (min-width: 1600px) {
+
+    .perfil-card {
+        max-width: 1050px;
+    }
+}
+
+@media (max-width: 1366px) {
+
+    .perfil-page {
+        padding: 30px;
+    }
+
+    .perfil-card__grid {
+        grid-template-columns: 250px minmax(0, 1fr);
+    }
+
+    .perfil-lateral__avatar {
+        width: 140px;
+        height: 140px;
+    }
+
+    .perfil-page__logo {
+        width: 130px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .perfil-card__grid {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 28px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .perfil-page {
+        padding: 24px;
+    }
+
+    .perfil-page__header {
+        align-items: flex-start;
+    }
+
+    .perfil-page__logo {
+        width: 110px;
+    }
+
+    .perfil-card {
+        padding: 24px;
+    }
+
+    .perfil-card__grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .perfil-lateral {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .perfil-page__subtitle {
+        font-size: 16px;
+    }
+
+    .perfil-page__logo {
+        width: 100px;
+    }
+
+    .perfil-lateral__avatar {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .perfil-page {
+        padding: 18px;
+    }
+
+    .perfil-page__header {
+        gap: 10px;
+    }
+
+    .perfil-page__subtitle {
+        font-size: 14px;
+    }
+
+    .perfil-page__logo {
+        width: 90px;
+    }
+
+    .perfil-card {
+        padding: 18px;
+        border-radius: 18px;
+        margin: 24px auto;
+    }
+
+    .perfil-dados {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .perfil-dados__icone {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .perfil-page {
+        padding: 15px;
+    }
+
+    .perfil-page__logo {
+        width: 80px;
+    }
+
+    .perfil-lateral__avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .perfil-dados__icone {
+        width: 36px;
+        height: 36px;
+    }
+
+    .perfil-dados__label {
+        font-size: 13px;
+    }
+
+    .perfil-dados__valor {
+        font-size: 14px;
+    }
+}

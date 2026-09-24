@@ -1,0 +1,628 @@
+/* ==========================================================================
+   Analisar solicitações (lista)
+   Prefixo: lsol-   |   Sem seletores de tag (só classes)
+   Depende do layout.css para base, menu lateral e rodapé.
+   ========================================================================== */
+
+.lsol-pagina {
+    --lsol-primaria: #109e8c;
+    --lsol-primaria-escura: #0a7f70;
+    --lsol-texto: #13231d;
+    --lsol-texto-suave: #2b3e35;
+    --lsol-texto-apoio: #5c706a;
+    --lsol-borda: #d0ddd8;
+    --lsol-superficie: #ffffff;
+
+    box-sizing: border-box;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 36px 48px 90px;
+    color: var(--lsol-texto);
+}
+
+.lsol-busca,
+.lsol-select,
+.lsol-data,
+.lsol-botao,
+.lsol-alerta,
+.lsol-vazio {
+    box-sizing: border-box;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.lsol-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.lsol-cabecalho-texto {
+    min-width: 0;
+    max-width: 760px;
+}
+
+.lsol-titulo-linha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.lsol-titulo-marca {
+    flex-shrink: 0;
+    width: 6px;
+    height: 48px;
+    border-radius: 4px;
+    background: var(--lsol-primaria);
+}
+
+.lsol-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(26px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.lsol-subtitulo {
+    margin: 0;
+    font-size: clamp(15px, 1.4vw, 20px);
+    line-height: 1.45;
+    color: var(--lsol-texto-suave);
+}
+
+.lsol-logo {
+    flex-shrink: 0;
+    width: 144px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- Alertas ---------- */
+
+.lsol-alerta {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.lsol-alerta--sucesso {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.lsol-alerta--erro {
+    background: #ffe5e5;
+    color: #b42318;
+}
+
+/* ---------- Cartões de resumo ---------- */
+
+.lsol-resumo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 22px;
+    margin-bottom: 32px;
+}
+
+.lsol-resumo-cartao {
+    padding: 20px;
+    background: var(--lsol-superficie);
+    border: 1px solid #e7e7e7;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.lsol-resumo-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lsol-resumo-icone {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.lsol-resumo-icone--total,
+.lsol-resumo-icone--aprovada {
+    background: #e9f8ed;
+}
+
+.lsol-resumo-icone--devolucao {
+    background: #ddddf1;
+}
+
+.lsol-resumo-icone--pendente {
+    background: #fff7d9;
+}
+
+.lsol-resumo-icone--negada {
+    background: #ffe5e5;
+}
+
+/* Tamanho único para todos os ícones (antes cada um tinha um tamanho) */
+.lsol-resumo-imagem {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.lsol-resumo-rotulo {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.lsol-resumo-numero {
+    margin: 16px 0 6px;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.lsol-resumo-texto {
+    display: block;
+    font-size: 15px;
+    text-align: center;
+    color: var(--lsol-texto-apoio);
+}
+
+/* ---------- Painel ---------- */
+
+.lsol-painel {
+    padding: 24px;
+    background: var(--lsol-superficie);
+    border: 1px solid #e6e6e6;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Filtros ---------- */
+
+.lsol-filtros {
+    display: grid;
+    grid-template-columns: minmax(260px, 2fr) minmax(180px, 1fr) minmax(170px, 1fr) auto;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.lsol-busca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    padding: 0 14px;
+    background: var(--lsol-superficie);
+    border: 1px solid var(--lsol-borda);
+    border-radius: 12px;
+}
+
+.lsol-busca:focus-within {
+    border-color: var(--lsol-primaria);
+    box-shadow: 0 0 0 3px rgba(16, 158, 140, 0.2);
+}
+
+.lsol-busca-icone {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.lsol-busca-campo {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    color: var(--lsol-texto);
+}
+
+.lsol-select,
+.lsol-data {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid var(--lsol-borda);
+    border-radius: 12px;
+    background: var(--lsol-superficie);
+    font: inherit;
+    font-size: 16px;
+    color: var(--lsol-texto);
+}
+
+.lsol-select {
+    cursor: pointer;
+}
+
+.lsol-select:focus-visible,
+.lsol-data:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.35);
+    border-color: var(--lsol-primaria);
+}
+
+/* ---------- Botões ---------- */
+
+.lsol-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    border: 1.5px solid transparent;
+    border-radius: 12px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lsol-botao:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.45);
+    outline-offset: 2px;
+}
+
+.lsol-botao--primario {
+    background: var(--lsol-primaria);
+    color: #ffffff;
+}
+
+.lsol-botao--primario:hover {
+    background: var(--lsol-primaria-escura);
+}
+
+.lsol-botao--contorno {
+    background: var(--lsol-superficie);
+    border-color: var(--lsol-primaria-escura);
+    color: var(--lsol-primaria-escura);
+}
+
+.lsol-botao--contorno:hover {
+    background: var(--lsol-primaria-escura);
+    color: #ffffff;
+}
+
+.lsol-botao--pequeno {
+    height: auto;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ---------- Abas ---------- */
+
+.lsol-abas {
+    display: flex;
+    gap: 36px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    overflow-x: auto;
+}
+
+.lsol-aba {
+    position: relative;
+    flex-shrink: 0;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #444444;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.lsol-aba:hover {
+    color: var(--lsol-primaria-escura);
+}
+
+.lsol-aba:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.45);
+    outline-offset: 2px;
+}
+
+.lsol-aba--ativa {
+    color: var(--lsol-texto);
+}
+
+.lsol-aba--ativa::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: var(--lsol-primaria);
+}
+
+/* ---------- Tabela ---------- */
+
+.lsol-tabela-rolagem {
+    overflow-x: auto;
+}
+
+.lsol-tabela {
+    width: 100%;
+    min-width: 860px;
+    border-collapse: collapse;
+}
+
+.lsol-tabela-titulo {
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.lsol-tabela-titulo--centro {
+    text-align: center;
+}
+
+.lsol-tabela-titulo--direita {
+    text-align: right;
+}
+
+.lsol-tabela-celula {
+    padding: 16px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.lsol-tabela-celula--centro {
+    text-align: center;
+}
+
+.lsol-tabela-celula--direita {
+    text-align: right;
+}
+
+.lsol-tabela-apoio {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    color: var(--lsol-texto-apoio);
+}
+
+/* ---------- Status ---------- */
+
+.lsol-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 8px 16px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.lsol-status--pendente {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.lsol-status--aprovada {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.lsol-status--negada {
+    background: #ffe5e5;
+    color: #b42318;
+}
+
+.lsol-status--devolucao {
+    background: #ddddf1;
+    color: #5a4e7c;
+}
+
+.lsol-status--neutro {
+    background: #eef2f0;
+    color: #3f524b;
+}
+
+/* ---------- Estado vazio ---------- */
+
+.lsol-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 48px 24px;
+    text-align: center;
+    border: 2px dashed var(--lsol-borda);
+    border-radius: 16px;
+}
+
+.lsol-vazio-titulo {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.lsol-vazio-texto {
+    margin: 0 0 12px;
+    color: var(--lsol-texto-apoio);
+}
+
+/* ---------- Rodapé da lista / paginação ---------- */
+
+.lsol-rodape {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.lsol-rodape-info {
+    margin: 0;
+    color: var(--lsol-texto-apoio);
+}
+
+.lsol-paginacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.lsol-pagina-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 42px;
+    height: 42px;
+    padding: 0 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background: var(--lsol-superficie);
+    font-weight: 700;
+    color: var(--lsol-texto);
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.lsol-pagina-link:hover {
+    background: #e2f3ef;
+}
+
+.lsol-pagina-link:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.45);
+    outline-offset: 2px;
+}
+
+.lsol-pagina-link--ativa,
+.lsol-pagina-link--ativa:hover {
+    background: var(--lsol-primaria);
+    border-color: var(--lsol-primaria);
+    color: #ffffff;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1200px) {
+    .lsol-filtros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .lsol-busca {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 992px) {
+    .lsol-pagina {
+        padding: 28px;
+    }
+
+    .lsol-logo {
+        width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lsol-pagina {
+        padding: 18px;
+    }
+
+    .lsol-cabecalho {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .lsol-logo {
+        width: 90px;
+    }
+
+    .lsol-titulo-linha {
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .lsol-titulo-marca {
+        height: 34px;
+    }
+
+    .lsol-resumo {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .lsol-resumo-numero {
+        font-size: 36px;
+    }
+
+    .lsol-painel {
+        padding: 18px;
+    }
+
+    .lsol-filtros {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .lsol-filtros .lsol-botao {
+        width: 100%;
+    }
+
+    .lsol-abas {
+        gap: 20px;
+    }
+
+    .lsol-rodape {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .lsol-pagina {
+        padding: 14px;
+    }
+
+    .lsol-logo {
+        width: 75px;
+    }
+
+    .lsol-titulo-marca {
+        height: 28px;
+    }
+
+    .lsol-resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .lsol-pagina-link {
+        min-width: 36px;
+        height: 36px;
+    }
+
+    .lsol-paginacao {
+        gap: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lsol-botao,
+    .lsol-pagina-link {
+        transition: none;
+    }
+}

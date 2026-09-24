@@ -1,0 +1,597 @@
+/* ==========================================================================
+   Minhas solicitações
+   Prefixo: msol-   |   Sem seletores de tag (só classes)
+   Depende do layout.css para base, menu lateral e rodapé.
+   ========================================================================== */
+
+.msol-pagina {
+    --msol-primaria: #109e8c;
+    --msol-primaria-escura: #0a7f70;
+    --msol-texto: #13231d;
+    --msol-texto-suave: #2b3e35;
+    --msol-texto-apoio: #5c706a;
+    --msol-borda: #d0ddd8;
+    --msol-superficie: #ffffff;
+
+    box-sizing: border-box;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 36px 48px 90px;
+    color: var(--msol-texto);
+}
+
+.msol-busca,
+.msol-select,
+.msol-data,
+.msol-botao,
+.msol-alerta,
+.msol-vazio {
+    box-sizing: border-box;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.msol-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.msol-cabecalho-texto {
+    min-width: 0;
+    max-width: 760px;
+}
+
+.msol-titulo-linha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.msol-titulo-marca {
+    flex-shrink: 0;
+    width: 6px;
+    height: 48px;
+    border-radius: 4px;
+    background: var(--msol-primaria);
+}
+
+.msol-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(26px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.msol-subtitulo {
+    margin: 0;
+    font-size: clamp(15px, 1.4vw, 20px);
+    line-height: 1.45;
+    color: var(--msol-texto-suave);
+}
+
+.msol-logo {
+    flex-shrink: 0;
+    width: 144px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- Alertas ---------- */
+
+.msol-alerta {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.msol-alerta--sucesso {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.msol-alerta--erro {
+    background: #ffe5e5;
+    color: #b42318;
+}
+
+/* ---------- Cartões de resumo ---------- */
+
+.msol-resumo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-bottom: 32px;
+}
+
+.msol-resumo-cartao {
+    padding: 20px;
+    background: var(--msol-superficie);
+    border: 1px solid #e7e7e7;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.msol-resumo-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.msol-resumo-icone {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.msol-resumo-icone--aprovada {
+    background: #e9f8ed;
+}
+
+.msol-resumo-icone--devolvido {
+    background: #ddddf1;
+}
+
+.msol-resumo-icone--pendente {
+    background: #fff7d9;
+}
+
+.msol-resumo-icone--negada {
+    background: #ffe5e5;
+}
+
+/* Tamanho único para todos os ícones (antes cada um tinha um tamanho) */
+.msol-resumo-imagem {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.msol-resumo-rotulo {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.msol-resumo-numero {
+    margin: 16px 0 6px;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.msol-resumo-texto {
+    display: block;
+    font-size: 15px;
+    text-align: center;
+    color: var(--msol-texto-apoio);
+}
+
+/* ---------- Painel ---------- */
+
+.msol-painel {
+    padding: 24px;
+    background: var(--msol-superficie);
+    border: 1px solid #e6e6e6;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.msol-painel-titulo {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* ---------- Filtros ---------- */
+
+.msol-filtros {
+    display: grid;
+    grid-template-columns: minmax(260px, 2fr) minmax(180px, 1fr) minmax(170px, 1fr) auto;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.msol-busca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    padding: 0 14px;
+    background: var(--msol-superficie);
+    border: 1px solid var(--msol-borda);
+    border-radius: 12px;
+}
+
+.msol-busca:focus-within {
+    border-color: var(--msol-primaria);
+    box-shadow: 0 0 0 3px rgba(16, 158, 140, 0.2);
+}
+
+.msol-busca-icone {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.msol-busca-campo {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    color: var(--msol-texto);
+}
+
+.msol-select,
+.msol-data {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid var(--msol-borda);
+    border-radius: 12px;
+    background: var(--msol-superficie);
+    font: inherit;
+    font-size: 16px;
+    color: var(--msol-texto);
+}
+
+.msol-select {
+    cursor: pointer;
+}
+
+.msol-select:focus-visible,
+.msol-data:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.35);
+    border-color: var(--msol-primaria);
+}
+
+/* ---------- Botões ---------- */
+
+.msol-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    border: 1.5px solid transparent;
+    border-radius: 12px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.msol-botao:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.45);
+    outline-offset: 2px;
+}
+
+.msol-botao--primario {
+    background: var(--msol-primaria);
+    color: #ffffff;
+}
+
+.msol-botao--primario:hover {
+    background: var(--msol-primaria-escura);
+}
+
+.msol-botao--contorno {
+    background: var(--msol-superficie);
+    border-color: var(--msol-primaria-escura);
+    color: var(--msol-primaria-escura);
+}
+
+.msol-botao--contorno:hover {
+    background: var(--msol-primaria-escura);
+    color: #ffffff;
+}
+
+.msol-botao--perigo {
+    background: #ffffff;
+    border-color: #d9534f;
+    color: #b42318;
+}
+
+.msol-botao--perigo:hover {
+    background: #d9534f;
+    color: #ffffff;
+}
+
+.msol-botao--pequeno {
+    height: auto;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ---------- Tabela ---------- */
+
+.msol-tabela-rolagem {
+    overflow-x: auto;
+}
+
+.msol-tabela {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+}
+
+.msol-tabela-titulo {
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.msol-tabela-titulo--centro {
+    text-align: center;
+}
+
+.msol-tabela-celula {
+    padding: 16px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.msol-tabela-celula--centro {
+    text-align: center;
+}
+
+/* ---------- Ações da linha ---------- */
+
+.msol-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.msol-acoes-formulario {
+    margin: 0;
+}
+
+/* ---------- Status ---------- */
+
+.msol-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 8px 16px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.msol-status--pendente {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.msol-status--aprovada {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.msol-status--negada {
+    background: #ffe5e5;
+    color: #b42318;
+}
+
+.msol-status--devolvido {
+    background: #ddddf1;
+    color: #5a4e7c;
+}
+
+.msol-status--cancelada {
+    background: #e6e9e8;
+    color: #4a5753;
+}
+
+.msol-status--neutro {
+    background: #eef2f0;
+    color: #3f524b;
+}
+
+/* ---------- Estado vazio ---------- */
+
+.msol-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 48px 24px;
+    text-align: center;
+    border: 2px dashed var(--msol-borda);
+    border-radius: 16px;
+}
+
+.msol-vazio-titulo {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.msol-vazio-texto {
+    margin: 0 0 12px;
+    color: var(--msol-texto-apoio);
+}
+
+/* ---------- Rodapé da lista / paginação ---------- */
+
+.msol-rodape {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.msol-rodape-info {
+    margin: 0;
+    color: var(--msol-texto-apoio);
+}
+
+.msol-paginacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.msol-pagina-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 42px;
+    height: 42px;
+    padding: 0 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background: var(--msol-superficie);
+    font-weight: 700;
+    color: var(--msol-texto);
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.msol-pagina-link:hover {
+    background: #e2f3ef;
+}
+
+.msol-pagina-link:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.45);
+    outline-offset: 2px;
+}
+
+.msol-pagina-link--ativa,
+.msol-pagina-link--ativa:hover {
+    background: var(--msol-primaria);
+    border-color: var(--msol-primaria);
+    color: #ffffff;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1200px) {
+    .msol-filtros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .msol-busca {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 992px) {
+    .msol-pagina {
+        padding: 28px;
+    }
+
+    .msol-logo {
+        width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .msol-pagina {
+        padding: 18px;
+    }
+
+    .msol-cabecalho {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .msol-logo {
+        width: 90px;
+    }
+
+    .msol-titulo-linha {
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .msol-titulo-marca {
+        height: 34px;
+    }
+
+    .msol-resumo {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .msol-resumo-numero {
+        font-size: 36px;
+    }
+
+    .msol-painel {
+        padding: 18px;
+    }
+
+    .msol-filtros {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .msol-filtros .msol-botao {
+        width: 100%;
+    }
+
+    .msol-rodape {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .msol-pagina {
+        padding: 14px;
+    }
+
+    .msol-logo {
+        width: 75px;
+    }
+
+    .msol-titulo-marca {
+        height: 28px;
+    }
+
+    .msol-resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .msol-pagina-link {
+        min-width: 36px;
+        height: 36px;
+    }
+
+    .msol-paginacao {
+        gap: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .msol-botao,
+    .msol-pagina-link {
+        transition: none;
+    }
+}

@@ -1,0 +1,320 @@
+/* ==========================================================================
+   Página: Alterar Senha
+   Bloco:  .senha-editar   (convenção BEM: bloco__elemento--modificador)
+   Regras: apenas seletores de classe, nenhum seletor de tag, tudo com prefixo.
+   ========================================================================== */
+
+.senha-editar {
+    --senha-cor-primaria: #109e8c;
+    --senha-cor-primaria-escura: #0a7f70;
+    --senha-cor-texto: #14221f;
+    --senha-cor-borda: #d9d9d9;
+    --senha-cor-divisor: #dbe4e2;
+    --senha-cor-sucesso-fundo: #e3f5ee;
+    --senha-cor-sucesso-texto: #0b5d4f;
+    --senha-cor-erro-fundo: #fdeaea;
+    --senha-cor-erro-texto: #a12626;
+
+    box-sizing: border-box;
+    padding: 35px;
+    color: var(--senha-cor-texto);
+}
+
+.senha-editar *,
+.senha-editar *::before,
+.senha-editar *::after {
+    box-sizing: inherit;
+}
+
+/* ---------- Cabeçalho da página ---------- */
+
+.senha-editar__cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.senha-editar__titulos {
+    flex: 1;
+    min-width: 0;
+}
+
+.senha-editar__linha-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.senha-editar__marcador {
+    width: 6px;
+    height: 45px;
+    border-radius: 5px;
+    background: var(--senha-cor-primaria);
+}
+
+.senha-editar__titulo {
+    margin: 0;
+    font-size: clamp(26px, 2.4vw, 40px);
+    font-weight: 700;
+    color: #13231d;
+}
+
+.senha-editar__subtitulo {
+    margin: 10px 0 0;
+    font-size: clamp(14px, 1.4vw, 18px);
+}
+
+.senha-editar__logo {
+    width: clamp(80px, 10vw, 140px);
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+/* ---------- Alertas ---------- */
+
+.senha-editar__alerta {
+    max-width: 700px;
+    margin: 24px auto 0;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.senha-editar__alerta--sucesso {
+    background: var(--senha-cor-sucesso-fundo);
+    color: var(--senha-cor-sucesso-texto);
+}
+
+.senha-editar__alerta--erro {
+    background: var(--senha-cor-erro-fundo);
+    color: var(--senha-cor-erro-texto);
+}
+
+.senha-editar__alerta-linha {
+    margin: 0;
+}
+
+.senha-editar__alerta-linha + .senha-editar__alerta-linha {
+    margin-top: 4px;
+}
+
+/* ---------- Cartão ---------- */
+
+.senha-editar__cartao {
+    width: 100%;
+    max-width: 700px;
+    margin: 32px auto 40px;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.senha-editar__cartao-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.senha-editar__cartao-titulo {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.senha-editar__divisor {
+    flex: 1;
+    height: 1px;
+    background: var(--senha-cor-divisor);
+}
+
+/* ---------- Formulário ---------- */
+
+.senha-editar__formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.senha-editar__grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.senha-editar__rotulo {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.senha-editar__envoltorio {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.senha-editar__entrada {
+    width: 100%;
+    padding: 14px 48px 14px 16px;
+    border: 2px solid var(--senha-cor-borda);
+    border-radius: 10px;
+    background: #ffffff;
+    font: inherit;
+    font-size: 16px;
+    color: var(--senha-cor-texto);
+    transition: border-color 0.2s ease;
+}
+
+.senha-editar__entrada:focus {
+    outline: none;
+    border-color: var(--senha-cor-primaria);
+    box-shadow: 0 0 0 3px rgba(16, 158, 140, 0.15);
+}
+
+.senha-editar__entrada:user-invalid {
+    border-color: var(--senha-cor-erro-texto);
+}
+
+/* ---------- Botão mostrar/ocultar ---------- */
+
+.senha-editar__alternar {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border: none;
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.senha-editar__alternar:hover {
+    background: rgba(16, 158, 140, 0.1);
+}
+
+.senha-editar__alternar:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.4);
+}
+
+.senha-editar__alternar-icone {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+/* ---------- Ações ---------- */
+
+.senha-editar__acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.senha-editar__botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.senha-editar__botao:hover {
+    transform: translateY(-1px);
+}
+
+.senha-editar__botao:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.4);
+    outline-offset: 2px;
+}
+
+.senha-editar__botao--primario {
+    background: var(--senha-cor-primaria);
+    color: #ffffff;
+}
+
+.senha-editar__botao--primario:hover {
+    background: var(--senha-cor-primaria-escura);
+}
+
+.senha-editar__botao--secundario {
+    background: #ffffff;
+    color: var(--senha-cor-primaria);
+    border-color: var(--senha-cor-borda);
+}
+
+.senha-editar__botao--secundario:hover {
+    border-color: var(--senha-cor-primaria);
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 768px) {
+    .senha-editar {
+        padding: 24px 18px;
+    }
+
+    .senha-editar__cartao {
+        padding: 24px;
+    }
+
+    .senha-editar__acoes {
+        flex-direction: column-reverse;
+    }
+
+    .senha-editar__botao {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .senha-editar {
+        padding: 16px 14px;
+    }
+
+    .senha-editar__cartao {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .senha-editar__cartao-cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .senha-editar__divisor {
+        width: 100%;
+        flex: none;
+    }
+
+    .senha-editar__entrada {
+        font-size: 15px;
+        padding: 12px 44px 12px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .senha-editar__botao,
+    .senha-editar__alternar,
+    .senha-editar__entrada {
+        transition: none;
+    }
+
+    .senha-editar__botao:hover {
+        transform: none;
+    }
+}

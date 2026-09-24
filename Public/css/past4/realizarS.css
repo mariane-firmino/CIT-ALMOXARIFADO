@@ -1,0 +1,387 @@
+/* ==========================================================================
+   Realizar solicitação
+   Prefixo: rsol-   |   Sem seletores de tag (só classes)
+   Depende do layout.css para base, menu lateral e rodapé.
+   ========================================================================== */
+
+.rsol-pagina {
+    --rsol-primaria: #109e8c;
+    --rsol-primaria-escura: #0a7f70;
+    --rsol-texto: #13231d;
+    --rsol-texto-suave: #2b3e35;
+    --rsol-texto-apoio: #6b7f78;
+    --rsol-borda: #dbe8e4;
+
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 48px 90px;
+    color: var(--rsol-texto);
+}
+
+.rsol-quantidade-campo,
+.rsol-enviar,
+.rsol-remover,
+.rsol-alerta {
+    box-sizing: border-box;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.rsol-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.rsol-cabecalho-texto {
+    min-width: 0;
+}
+
+.rsol-titulo-linha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.rsol-titulo-marca {
+    flex-shrink: 0;
+    width: 6px;
+    height: 48px;
+    border-radius: 4px;
+    background: var(--rsol-primaria);
+}
+
+.rsol-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(26px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.rsol-subtitulo {
+    margin: 0;
+    font-size: clamp(15px, 1.4vw, 20px);
+    line-height: 1.45;
+    color: var(--rsol-texto-suave);
+}
+
+.rsol-logo {
+    flex-shrink: 0;
+    width: 144px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- Alerta ---------- */
+
+.rsol-alerta {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.rsol-alerta--erro {
+    background: #ffe5e5;
+    color: #b42318;
+}
+
+/* ---------- Painel ---------- */
+
+.rsol-painel {
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.rsol-painel-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.rsol-painel-titulo {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.rsol-fechar {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.rsol-fechar:hover {
+    background: #eef5f2;
+}
+
+.rsol-fechar:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.45);
+}
+
+.rsol-fechar-icone {
+    width: 20px;
+    height: 20px;
+}
+
+/* ---------- Formulário e lista ---------- */
+
+.rsol-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.rsol-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.rsol-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border: 1px solid var(--rsol-borda);
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.rsol-item-foto {
+    flex-shrink: 0;
+    width: 75px;
+    height: 75px;
+    border-radius: 12px;
+    background: #edf3f1;
+    object-fit: cover;
+}
+
+.rsol-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.rsol-item-nome {
+    margin: 0 0 6px;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.rsol-item-categoria {
+    margin: 0;
+    font-size: 15px;
+    color: var(--rsol-texto-apoio);
+}
+
+/* ---------- Quantidade ---------- */
+
+.rsol-quantidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.rsol-quantidade-rotulo {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.rsol-quantidade-campo {
+    width: 90px;
+    padding: 10px;
+    border: 1px solid #d0ddd8;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 16px;
+    text-align: center;
+}
+
+.rsol-quantidade-campo:focus {
+    outline: none;
+    border-color: var(--rsol-primaria);
+    box-shadow: 0 0 0 3px rgba(16, 158, 140, 0.2);
+}
+
+.rsol-quantidade-estoque {
+    font-size: 13px;
+    color: var(--rsol-texto-apoio);
+}
+
+/* ---------- Botões ---------- */
+
+.rsol-remover {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: 1.5px solid #d9534f;
+    border-radius: 10px;
+    background: #ffffff;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #b42318;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.rsol-remover:hover {
+    background: #d9534f;
+    color: #ffffff;
+}
+
+.rsol-remover:focus-visible,
+.rsol-enviar:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.45);
+    outline-offset: 2px;
+}
+
+.rsol-enviar {
+    width: 160px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    background: var(--rsol-primaria);
+    font: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.rsol-enviar:hover:not(:disabled) {
+    background: var(--rsol-primaria-escura);
+}
+
+.rsol-enviar:disabled {
+    background: #a9cfc9;
+    cursor: not-allowed;
+}
+
+/* ---------- Estado vazio (após remover todos) ---------- */
+
+.rsol-vazio {
+    margin: 0;
+    text-align: center;
+    color: var(--rsol-texto-apoio);
+}
+
+.rsol-vazio[hidden] {
+    display: none;
+}
+
+.rsol-vazio-link {
+    font-weight: 700;
+    color: var(--rsol-primaria-escura);
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 992px) {
+    .rsol-pagina {
+        padding: 28px;
+    }
+
+    .rsol-logo {
+        width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rsol-pagina {
+        padding: 18px;
+    }
+
+    .rsol-cabecalho {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .rsol-logo {
+        width: 90px;
+    }
+
+    .rsol-titulo-linha {
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .rsol-titulo-marca {
+        height: 34px;
+    }
+
+    .rsol-painel {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .rsol-painel-titulo {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 576px) {
+    .rsol-pagina {
+        padding: 14px;
+    }
+
+    .rsol-logo {
+        width: 75px;
+    }
+
+    .rsol-titulo-marca {
+        height: 28px;
+    }
+
+    .rsol-item {
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px;
+        text-align: center;
+    }
+
+    .rsol-item-info {
+        width: 100%;
+    }
+
+    .rsol-quantidade {
+        width: 100%;
+    }
+
+    .rsol-quantidade-campo {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .rsol-remover,
+    .rsol-enviar {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rsol-fechar,
+    .rsol-remover,
+    .rsol-enviar {
+        transition: none;
+    }
+}

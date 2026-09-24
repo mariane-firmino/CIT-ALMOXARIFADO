@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Página: Início (dashboard)
+   Bloco:  .inicio   (convenção BEM: bloco__elemento--modificador)
+   Regras: apenas seletores de classe, nenhum seletor de tag, tudo com prefixo.
+
+   Antes havia 3 conjuntos de classes quase idênticos (perfil / produtos /
+   estoque) e mais 3 (notificação / resumo / atividades). Agora existe um único
+   componente de cartão, reaproveitado por todos.
+   ========================================================================== */
+
+.inicio {
+    --inicio-cor-primaria: #109e8c;
+    --inicio-cor-texto: #13231d;
+    --inicio-cor-texto-suave: #2b3e35;
+    --inicio-cor-divisor: #d9d9d9;
+
+    box-sizing: border-box;
+    padding: 36px 48px 90px;
+    color: var(--inicio-cor-texto);
+}
+
+.inicio *,
+.inicio *::before,
+.inicio *::after {
+    box-sizing: inherit;
+}
+
+/* ---------- Cabeçalho da página ---------- */
+
+.inicio__cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.inicio__titulos {
+    flex: 1;
+    min-width: 0;
+}
+
+.inicio__linha-titulo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.inicio__marcador {
+    width: 6px;
+    height: 48px;
+    border-radius: 4px;
+    background: var(--inicio-cor-primaria);
+}
+
+.inicio__titulo {
+    margin: 0;
+    font-size: clamp(26px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.inicio__subtitulo {
+    margin: 0;
+    font-size: clamp(14px, 1.4vw, 18px);
+    color: var(--inicio-cor-texto-suave);
+}
+
+.inicio__logo {
+    width: clamp(85px, 10vw, 144px);
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* ---------- Grade do painel ---------- */
+
+.inicio__painel {
+    display: grid;
+    gap: 26px;
+}
+
+.inicio__faixa-principal {
+    display: grid;
+    grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
+    gap: 26px;
+}
+
+/* auto-fill: com 1 cartão ele mantém a largura de uma coluna; com 4, ocupa a linha */
+.inicio__faixa-secundaria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 26px;
+}
+
+/* ---------- Cartão (componente único) ---------- */
+
+.inicio__cartao {
+    min-height: 165px;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 20px;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.1);
+}
+
+.inicio__cartao-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.inicio__cartao-icone {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.inicio__cartao-titulo {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+/* ---------- Conteúdo dos cartões ---------- */
+
+.inicio__destaque {
+    margin: 4px 0 8px;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.inicio__destaque--centralizado {
+    margin: 16px 0;
+    text-align: center;
+}
+
+.inicio__texto-apoio {
+    margin: 0;
+    font-size: 15px;
+    color: var(--inicio-cor-texto-suave);
+}
+
+.inicio__status {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--inicio-cor-primaria);
+}
+
+.inicio__linhas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inicio__linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    font-size: 16px;
+}
+
+.inicio__linha-valor {
+    font-weight: 800;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Resumo em 3 colunas ---------- */
+
+.inicio__resumo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    align-items: center;
+}
+
+.inicio__resumo-coluna {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.inicio__resumo-coluna:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: -5px;
+    width: 2px;
+    height: 60px;
+    border-radius: 10px;
+    background: var(--inicio-cor-divisor);
+}
+
+.inicio__resumo-rotulo {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--inicio-cor-texto-suave);
+}
+
+.inicio__resumo-numero {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1024px) {
+    .inicio {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 800px) {
+    .inicio__faixa-principal {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .inicio {
+        padding: 18px 15px 60px;
+    }
+
+    .inicio__cartao {
+        padding: 16px;
+    }
+
+    .inicio__resumo-coluna:not(:last-child)::after {
+        display: none;
+    }
+}

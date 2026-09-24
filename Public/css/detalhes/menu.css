@@ -1,0 +1,250 @@
+/* ==========================================================
+   Menu lateral - CIT Almoxarifado
+   Todas as classes usam o prefixo cit-menu (bloco__elemento--modificador)
+   ========================================================== */
+
+:root {
+    --cit-menu-fundo: #17443e;
+    --cit-menu-hover: #109e8c;
+    --cit-menu-texto: #f5fcf9;
+    --cit-menu-largura: 300px;
+}
+
+/* Bolinha de notificações não lidas */
+.cit-menu__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 20px;
+    height: 20px;
+    margin-left: auto;
+    /* empurra para a direita do link */
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Pontinho no botão do menu (mobile) */
+.cit-menu__toggle-ponto {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #dc2626;
+}
+
+/* Texto só para leitores de tela */
+.cit-menu__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Checkbox que controla abrir/fechar: escondido, mas ainda acessível pelo teclado */
+.cit-menu__checkbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------- Botão hambúrguer ---------- */
+.cit-menu__toggle {
+    position: fixed;
+    top: 12px;
+    left: 15px;
+    z-index: 30;
+    box-sizing: border-box;
+    width: 46px;
+    height: 46px;
+    padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.cit-menu__barra {
+    display: block;
+    height: 3px;
+    background: #4b5564;
+    border-radius: 20px;
+    transition: transform 0.3s ease, opacity 0.2s ease, background 0.3s ease;
+}
+
+.cit-menu__checkbox:focus-visible+.cit-menu__toggle {
+    outline: 3px solid #13231d;
+    outline-offset: 3px;
+}
+
+/* Menu aberto: barras brancas e viram um "X" */
+.cit-menu__checkbox:checked+.cit-menu__toggle .cit-menu__barra {
+    background: #fff;
+}
+
+.cit-menu__checkbox:checked+.cit-menu__toggle .cit-menu__barra:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.cit-menu__checkbox:checked+.cit-menu__toggle .cit-menu__barra:nth-child(2) {
+    opacity: 0;
+}
+
+.cit-menu__checkbox:checked+.cit-menu__toggle .cit-menu__barra:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ---------- Fundo escurecido (clicar fecha o menu) ---------- */
+.cit-menu__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(19, 35, 29, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cit-menu__checkbox:checked~.cit-menu__overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ---------- Barra lateral ---------- */
+.cit-menu__sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    box-sizing: border-box;
+    width: var(--cit-menu-largura);
+    max-width: 85vw;
+    padding: 80px 18px 25px;
+    overflow-y: auto;
+    background: var(--cit-menu-fundo);
+    color: #fff;
+    transform: translateX(-100%);
+    visibility: hidden;
+    /* fechado: links fora da ordem de tabulação */
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s;
+}
+
+.cit-menu__checkbox:checked~.cit-menu__sidebar {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* ---------- Cabeçalho (avatar + nome) ---------- */
+.cit-menu__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px;
+    padding: 22px 16px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.cit-menu__avatar {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    border: 3px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.15);
+    object-fit: cover;
+}
+
+.cit-menu__nome {
+    max-width: 100%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Links ---------- */
+.cit-menu__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cit-menu__link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    margin: 0 -10px;
+    padding: 4px 18px 4px 1px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cit-menu-texto);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.cit-menu__link:hover {
+    background: var(--cit-menu-hover);
+}
+
+.cit-menu__link:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+.cit-menu__link--ativo {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.cit-menu__icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--cit-menu-texto);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cit-menu__barra,
+    .cit-menu__overlay,
+    .cit-menu__sidebar,
+    .cit-menu__link {
+        transition: none;
+    }
+}

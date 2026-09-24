@@ -1,0 +1,463 @@
+/* ==========================================================
+   Tela: Cadastrar Produto
+   Prefixo único: cadprod-   (nenhum seletor de tag nesta folha)
+   O que era global (sidebar, footer, body, reset, a, h1) NÃO fica
+   aqui: mantenha no CSS do layout (cit-menu / site-footer / base).
+   ========================================================== */
+
+.cit-cadastro {
+    box-sizing: border-box;
+    padding: 36px 48px 90px 96px;
+    /* 96px à esquerda para não ficar sob o botão do menu */
+    color: #13231d;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.cit-cadastro__cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.cit-cadastro__titulo-grupo {
+    display: flex;
+    gap: 16px;
+}
+
+.cit-cadastro__marcador {
+    flex-shrink: 0;
+    width: 6px;
+    height: 48px;
+    border-radius: 5px;
+    background: #109e8c;
+}
+
+.cit-cadastro__titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(25px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.cit-cadastro__subtitulo {
+    margin: 10px 0 0;
+    font-size: 18px;
+}
+
+.cit-cadastro__logo {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* Nome ocupa a linha toda quando o número de campos é ímpar */
+.cit-cadastro__campo:first-child:nth-last-child(odd) {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 992px) {
+    .cit-cadastro {
+        padding: 30px 24px 70px 80px;
+    }
+
+    .cit-cadastro__logo {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cit-cadastro__grade {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .cit-cadastro {
+        padding: 22px 15px 45px 15px;
+    }
+
+    .cit-cadastro__cabecalho {
+        padding-left: 56px;
+        /* espaço para o botão do menu */
+        align-items: flex-start;
+    }
+
+    .cit-cadastro__logo {
+        width: 80px;
+    }
+}
+
+.cadprod-container {
+    --cadprod-verde: #109e8c;
+    --cadprod-verde-escuro: #0a7f70;
+    --cadprod-texto: #13231d;
+    --cadprod-borda: #d9d9d9;
+
+    padding: 36px 48px 90px;
+    color: var(--cadprod-texto);
+    font-family: 'Inria Sans', sans-serif;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.cadprod-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.cadprod-titulo-grupo {
+    display: flex;
+    gap: 16px;
+}
+
+.cadprod-titulo-marca {
+    flex-shrink: 0;
+    width: 6px;
+    height: 48px;
+    border-radius: 5px;
+    background: var(--cadprod-verde);
+}
+
+.cadprod-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(25px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.cadprod-subtitulo {
+    margin: 10px 0 0;
+    font-size: 18px;
+}
+
+.cadprod-logo {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* ---------- Painel ---------- */
+
+.cadprod-painel {
+    box-sizing: border-box;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 35px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.cadprod-painel-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cadprod-painel-titulo {
+    margin: 0;
+    font-size: 28px;
+}
+
+.cadprod-fechar {
+    display: flex;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.cadprod-fechar:hover {
+    background: #f0f5f3;
+}
+
+.cadprod-fechar-icone {
+    width: 22px;
+}
+
+/* ---------- Erros ---------- */
+
+.cadprod-erros {
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: #ffe5e5;
+    border-radius: 12px;
+    color: #b42318;
+}
+
+.cadprod-erros-titulo {
+    margin: 0 0 6px;
+    font-weight: 700;
+}
+
+.cadprod-erros-lista {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.cadprod-erros-item {
+    margin: 2px 0;
+    font-size: 15px;
+}
+
+/* ---------- Upload da imagem ---------- */
+
+.cadprod-upload-bloco {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.cadprod-upload {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 240px;
+    height: 190px;
+    padding: 12px;
+    overflow: hidden;
+    background: #edf3f1;
+    border: 2px dashed #b8cfc8;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cadprod-upload:hover {
+    border-color: var(--cadprod-verde);
+}
+
+.cadprod-upload:focus-within {
+    outline: 2px solid var(--cadprod-verde);
+    outline-offset: 2px;
+}
+
+/* O input fica por cima do bloco, invisível, mas continua focável e validável */
+.cadprod-upload-arquivo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.cadprod-upload-img {
+    width: 70px;
+}
+
+.cadprod-upload-texto {
+    color: #4f6b63;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.cadprod-upload-preenchido {
+    padding: 0;
+    border-style: solid;
+    border-color: var(--cadprod-verde);
+}
+
+.cadprod-upload-preenchido .cadprod-upload-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cadprod-upload-preenchido .cadprod-upload-texto {
+    display: none;
+}
+
+/* ---------- Formulário ---------- */
+
+.cadprod-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cadprod-linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.cadprod-grupo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cadprod-rotulo {
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.cadprod-campo {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    background: #fff;
+    border: 1px solid var(--cadprod-borda);
+    border-radius: 10px;
+    color: var(--cadprod-texto);
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.cadprod-campo:focus {
+    outline: none;
+    border-color: var(--cadprod-verde);
+    box-shadow: 0 0 0 3px rgba(16, 158, 140, 0.18);
+}
+
+.cadprod-campo-area {
+    resize: vertical;
+}
+
+.cadprod-ajuda {
+    margin: 6px 0 0;
+    color: #4f6b63;
+    font-size: 13px;
+}
+
+.cadprod-btn {
+    align-self: center;
+    min-width: 220px;
+    margin-top: 6px;
+    padding: 15px 32px;
+    border: none;
+    border-radius: 20px;
+    background: var(--cadprod-verde);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.cadprod-btn:hover {
+    background: var(--cadprod-verde-escuro);
+}
+
+.cadprod-btn:focus-visible {
+    outline: 2px solid var(--cadprod-verde);
+    outline-offset: 3px;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (min-width: 1600px) {
+    .cadprod-container {
+        max-width: 1700px;
+        margin: 0 auto;
+        padding: 45px 70px 90px;
+    }
+
+    .cadprod-painel {
+        max-width: 780px;
+    }
+
+    .cadprod-logo {
+        width: 135px;
+    }
+}
+
+@media (max-width: 992px) {
+    .cadprod-container {
+        padding: 30px 24px 70px;
+    }
+
+    .cadprod-painel {
+        padding: 30px;
+    }
+
+    .cadprod-linha {
+        grid-template-columns: 1fr;
+    }
+
+    .cadprod-logo {
+        width: 105px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cadprod-container {
+        padding: 28px 20px 60px;
+    }
+
+    .cadprod-painel {
+        padding: 25px;
+    }
+
+    .cadprod-subtitulo {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cadprod-container {
+        padding: 22px 15px 45px;
+    }
+
+    .cadprod-cabecalho {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .cadprod-titulo-grupo {
+        gap: 12px;
+    }
+
+    .cadprod-titulo-marca {
+        height: 38px;
+    }
+
+    .cadprod-subtitulo {
+        font-size: 15px;
+    }
+
+    .cadprod-logo {
+        width: 85px;
+    }
+
+    .cadprod-painel {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .cadprod-painel-titulo {
+        font-size: 22px;
+    }
+
+    .cadprod-upload {
+        width: 100%;
+        max-width: 240px;
+    }
+
+    .cadprod-campo {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .cadprod-btn {
+        align-self: stretch;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cadprod-btn {
+        transition: none;
+    }
+}

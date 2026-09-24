@@ -1,0 +1,550 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+========================================================= */
+
+.estagiario-cadastro-container {
+    background-color: #0a7f70;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 15px 30px;
+}
+
+
+/* =========================================================
+   WRAPPER
+========================================================= */
+
+.estagiario-cadastro-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+    max-width: 1036px;
+    min-height: 600px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   LADO ESQUERDO
+========================================================= */
+
+.estagiario-cadastro-left {
+    background-color: #075248;
+
+    padding: clamp(28px, 4vw, 34px) 40px 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.estagiario-cadastro-title {
+    font-size: clamp(32px, 5vw, 48px);
+
+    color: #ffffff;
+
+    margin-bottom: clamp(18px, 3vw, 30px);
+
+    font-weight: 400;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+.estagiario-cadastro-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+
+/* =========================================================
+   GRUPO
+========================================================= */
+
+.estagiario-cadastro-group {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: clamp(10px, 1.2vw, 15px);
+}
+
+
+/* =========================================================
+   LINHA
+========================================================= */
+
+.estagiario-cadastro-row {
+    width: 100%;
+
+    display: flex;
+
+    gap: clamp(12px, 1.8vw, 18px);
+}
+
+
+/* =========================================================
+   METADE
+========================================================= */
+
+.estagiario-cadastro-half {
+    width: calc(50% - clamp(6px, 0.9vw, 9px));
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.estagiario-cadastro-label {
+    color: #ffffff;
+
+    font-size: clamp(14px, 2vw, 18px);
+
+    font-weight: 400;
+
+    margin-bottom: clamp(6px, 1vw, 10px);
+}
+
+
+/* =========================================================
+   INPUT / SELECT
+========================================================= */
+
+.estagiario-cadastro-input {
+    width: 100%;
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: box-shadow 0.2s ease;
+}
+
+
+.estagiario-cadastro-input:focus {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+
+.estagiario-cadastro-input::placeholder {
+    color: #9e9e9e;
+}
+
+
+/* =========================================================
+   ERRO
+========================================================= */
+
+.estagiario-cadastro-input.is-invalid {
+    box-shadow: 0 0 0 2px #ff2f2f;
+}
+
+
+.estagiario-cadastro-error {
+    color: #ffb3b3;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+.estagiario-cadastro-submit {
+    width: 100%;
+    max-width: 450px;
+
+    height: clamp(36px, 5vw, 45px);
+
+    margin-top: clamp(20px, 4vw, 30px);
+    margin-bottom: clamp(30px, 5vw, 40px);
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: #ff2f2f;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.estagiario-cadastro-submit:hover {
+    background-color: #e52626;
+}
+
+
+.estagiario-cadastro-submit:active {
+    transform: scale(0.98);
+}
+
+
+.estagiario-cadastro-submit-text {
+    color: #ffffff;
+
+    font-size: clamp(14px, 2vw, 18px);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.estagiario-cadastro-footer {
+    width: 100%;
+    max-width: 450px;
+
+    margin-top: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: clamp(8px, 1.5vw, 12px);
+}
+
+
+.estagiario-cadastro-link-row {
+    display: flex;
+    align-items: center;
+
+    gap: clamp(3px, 0.8vw, 6px);
+
+    flex-wrap: wrap;
+
+    color: #ffffff;
+
+    font-size: clamp(12px, 1.6vw, 14px);
+}
+
+
+.estagiario-cadastro-link-text {
+    color: #ffffff;
+}
+
+
+.estagiario-cadastro-link {
+    color: #2384fa;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+
+.estagiario-cadastro-link:hover {
+    color: #1a6fd9;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   LADO DIREITO
+========================================================= */
+
+.estagiario-cadastro-right {
+    background-color: rgba(255, 255, 255, 0.9);
+
+    min-height: 600px;
+
+    padding: clamp(20px, 3vw, 40px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.estagiario-cadastro-logo-container {
+    width: 100%;
+    height: 100%;
+
+    max-width: 500px;
+    max-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.estagiario-cadastro-logo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   1366px
+========================================================= */
+
+@media (max-width: 1366px) {
+
+    .estagiario-cadastro-wrapper {
+        max-width: 950px;
+    }
+
+    .estagiario-cadastro-left {
+        padding: 30px;
+    }
+
+    .estagiario-cadastro-right {
+        padding: 30px;
+    }
+
+    .estagiario-cadastro-logo-container {
+        max-width: 420px;
+    }
+}
+
+
+/* =========================================================
+   1024px
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .estagiario-cadastro-wrapper {
+        max-width: 900px;
+    }
+
+    .estagiario-cadastro-left {
+        padding: 28px;
+    }
+
+    .estagiario-cadastro-right {
+        padding: 25px;
+    }
+
+    .estagiario-cadastro-logo-container {
+        max-width: 360px;
+    }
+}
+
+
+/* =========================================================
+   900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .estagiario-cadastro-wrapper {
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+    }
+
+    .estagiario-cadastro-right {
+        order: -1;
+
+        min-height: 220px;
+
+        padding: 30px;
+    }
+
+    .estagiario-cadastro-logo-container {
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+    .estagiario-cadastro-left {
+        padding: 35px;
+    }
+}
+
+
+/* =========================================================
+   768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .estagiario-cadastro-container {
+        padding: 20px;
+    }
+
+    .estagiario-cadastro-left {
+        padding: 30px 25px;
+    }
+
+    .estagiario-cadastro-title {
+        font-size: 36px;
+    }
+
+    .estagiario-cadastro-row {
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+    .estagiario-cadastro-half {
+        width: 100%;
+    }
+
+    .estagiario-cadastro-submit,
+    .estagiario-cadastro-footer {
+        max-width: none;
+    }
+}
+
+
+/* =========================================================
+   480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .estagiario-cadastro-container {
+        padding: 15px;
+    }
+
+    .estagiario-cadastro-wrapper {
+        border-radius: 16px;
+    }
+
+    .estagiario-cadastro-left {
+        padding: 25px 20px;
+    }
+
+    .estagiario-cadastro-right {
+        min-height: 170px;
+    }
+
+    .estagiario-cadastro-logo-container {
+        max-width: 180px;
+        max-height: 180px;
+    }
+
+    .estagiario-cadastro-title {
+        font-size: 30px;
+
+        margin-bottom: 20px;
+    }
+
+    .estagiario-cadastro-input {
+        height: 46px;
+
+        font-size: 15px;
+    }
+
+    .estagiario-cadastro-submit {
+        height: 46px;
+    }
+
+    .estagiario-cadastro-submit-text {
+        font-size: 16px;
+    }
+
+    .estagiario-cadastro-link-row {
+        justify-content: center;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .estagiario-cadastro-container {
+        padding: 10px;
+    }
+
+    .estagiario-cadastro-left {
+        padding: 22px 16px;
+    }
+
+    .estagiario-cadastro-title {
+        font-size: 26px;
+    }
+
+    .estagiario-cadastro-logo-container {
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .estagiario-cadastro-input {
+        height: 44px;
+
+        font-size: 14px;
+    }
+
+    .estagiario-cadastro-submit {
+        height: 44px;
+    }
+}

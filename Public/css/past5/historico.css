@@ -1,0 +1,627 @@
+/* ==========================================================
+   Tela: Consultar Histórico
+   Prefixo único: hist-   (nenhum seletor de tag nesta folha)
+   O que era global (sidebar, footer, body, reset, a, h1) NÃO fica
+   aqui: mantenha no CSS do layout (cit-menu / site-footer / base).
+   ========================================================== */
+
+.hist-container {
+    --hist-verde: #109e8c;
+    --hist-verde-escuro: #0a7f70;
+    --hist-texto: #13231d;
+    --hist-texto-suave: #4f6b63;
+    --hist-borda: #d0ddd8;
+    --hist-linha: #e5e5e5;
+
+    padding: 35px;
+    background: #f6f9f8;
+    color: var(--hist-texto);
+    font-family: 'Inria Sans', sans-serif;
+}
+
+/* ---------- Acessibilidade ---------- */
+
+.hist-somente-leitor {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.hist-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.hist-titulo-grupo {
+    flex: 1;
+    min-width: 0;
+}
+
+.hist-titulo-linha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hist-titulo-marca {
+    width: 6px;
+    height: 45px;
+    border-radius: 5px;
+    background: var(--hist-verde);
+}
+
+.hist-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(22px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.hist-subtitulo {
+    margin: 10px 0 0;
+    font-size: 18px;
+}
+
+.hist-logo {
+    width: 140px;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* ---------- Mensagens ---------- */
+
+.hist-alerta {
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.hist-alerta-sucesso {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.hist-alerta-erro {
+    background: #ffe5e5;
+    color: #b42318;
+}
+
+/* ---------- Cards-resumo ---------- */
+
+.hist-resumo {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 30px;
+}
+
+.hist-resumo-card {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.hist-resumo-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hist-resumo-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.hist-resumo-icone-verde {
+    background: #e9f8ed;
+}
+
+.hist-resumo-icone-azul {
+    background: #e8f0ff;
+}
+
+.hist-resumo-icone-roxo {
+    background: #ddddf1;
+}
+
+.hist-resumo-icone-vermelho {
+    background: #ffe5e5;
+}
+
+.hist-resumo-icone-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.hist-resumo-rotulo {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.hist-resumo-valor {
+    margin: 18px 0 8px;
+    font-size: clamp(34px, 3.6vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.hist-resumo-valor-pequeno {
+    font-size: clamp(22px, 2.2vw, 28px);
+}
+
+.hist-resumo-texto {
+    display: block;
+    color: #555;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* ---------- Relatório mensal ---------- */
+
+.hist-relatorio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding: 22px 24px;
+    background: #eef8f5;
+    border: 1px solid #cfe6de;
+    border-radius: 16px;
+}
+
+.hist-relatorio-cabeca {
+    flex: 1 1 100%;
+}
+
+.hist-relatorio-titulo {
+    margin: 0 0 4px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.hist-relatorio-texto {
+    margin: 0;
+    color: var(--hist-texto-suave);
+    font-size: 15px;
+}
+
+/* ---------- Campos de formulário ---------- */
+
+.hist-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hist-grupo-largo {
+    flex: 1 1 260px;
+}
+
+.hist-grupo-data {
+    flex: 0 1 170px;
+}
+
+.hist-rotulo {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.hist-select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    background: #fff;
+    border: 1px solid var(--hist-borda);
+    border-radius: 12px;
+    color: var(--hist-texto);
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.hist-select-filtro {
+    flex: 0 1 200px;
+    width: auto;
+}
+
+.hist-select:focus-visible {
+    outline: 2px solid var(--hist-verde);
+    outline-offset: 2px;
+}
+
+/* ---------- Botões ---------- */
+
+.hist-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 48px;
+    padding: 0 22px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.hist-btn:focus-visible {
+    outline: 2px solid var(--hist-verde);
+    outline-offset: 2px;
+}
+
+.hist-btn-principal {
+    background: var(--hist-verde);
+    color: #fff;
+}
+
+.hist-btn-principal:hover {
+    background: var(--hist-verde-escuro);
+}
+
+.hist-btn-contorno {
+    background: #fff;
+    border-color: var(--hist-verde);
+    color: var(--hist-verde-escuro);
+}
+
+.hist-btn-contorno:hover {
+    background: #e9f8f4;
+}
+
+/* ---------- Painel ---------- */
+
+.hist-painel {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hist-painel-titulo {
+    margin: 0 0 22px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* ---------- Busca e filtros ---------- */
+
+.hist-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.hist-busca {
+    display: flex;
+    align-items: center;
+    flex: 1 1 280px;
+    gap: 10px;
+    box-sizing: border-box;
+    height: 48px;
+    padding: 0 14px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.hist-busca:focus-within {
+    outline: 2px solid var(--hist-verde);
+    outline-offset: 2px;
+}
+
+.hist-busca-icone {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.hist-busca-campo {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+/* ---------- Tabela ---------- */
+
+.hist-tabela-wrapper {
+    overflow-x: auto;
+    border-bottom: 1px solid var(--hist-linha);
+}
+
+.hist-tabela {
+    width: 100%;
+    min-width: 860px;
+    border-collapse: collapse;
+}
+
+.hist-th {
+    padding: 16px 18px;
+    color: #222;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.hist-td {
+    padding: 16px 18px;
+    border-top: 1px solid var(--hist-linha);
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+.hist-td-secundario {
+    display: block;
+    color: var(--hist-texto-suave);
+    font-size: 14px;
+}
+
+.hist-col-centro {
+    text-align: center;
+}
+
+.hist-linha:hover .hist-td {
+    background: #f7fbf9;
+}
+
+.hist-usuario-nome {
+    display: block;
+    font-weight: 600;
+}
+
+.hist-usuario-email {
+    display: block;
+    margin-top: 2px;
+    color: var(--hist-texto-suave);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.hist-produtos {
+    max-width: 280px;
+    overflow-wrap: anywhere;
+}
+
+.hist-vazio {
+    padding: 40px 18px;
+    color: var(--hist-texto-suave);
+    text-align: center;
+}
+
+.hist-btn-acao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: 1px solid var(--hist-borda);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--hist-texto);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.hist-btn-acao:hover {
+    background: #f2f2f2;
+}
+
+.hist-btn-acao:focus-visible {
+    outline: 2px solid var(--hist-verde);
+    outline-offset: 2px;
+}
+
+/* ---------- Status ---------- */
+
+.hist-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 100px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.hist-status-pendente {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.hist-status-aprovada {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.hist-status-negada {
+    background: #ffe5e5;
+    color: #d9534f;
+}
+
+.hist-status-devolucao {
+    background: #ddddf1;
+    color: #5a4e7c;
+}
+
+/* ---------- Rodapé da tabela / paginação ---------- */
+
+.hist-rodape-tabela {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.hist-rodape-info {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+}
+
+.hist-paginacao {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.hist-pag-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 42px;
+    height: 42px;
+    padding: 0 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background: #fff;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.hist-pag-link:hover {
+    background: #f2f2f2;
+}
+
+.hist-pag-link:focus-visible {
+    outline: 2px solid var(--hist-verde);
+    outline-offset: 2px;
+}
+
+.hist-pag-link-ativa,
+.hist-pag-link-ativa:hover {
+    border-color: var(--hist-verde);
+    background: var(--hist-verde);
+    color: #fff;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1200px) {
+    .hist-resumo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1024px) {
+    .hist-container {
+        padding: 28px;
+    }
+
+    .hist-busca {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hist-container {
+        padding: 22px;
+    }
+
+    .hist-resumo {
+        gap: 16px;
+    }
+
+    .hist-relatorio {
+        padding: 18px;
+    }
+
+    .hist-rodape-tabela {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .hist-container {
+        padding: 18px;
+    }
+
+    .hist-subtitulo {
+        font-size: 15px;
+    }
+
+    .hist-logo {
+        width: 110px;
+    }
+
+    .hist-painel {
+        padding: 18px;
+    }
+
+    .hist-select-filtro,
+    .hist-grupo-data,
+    .hist-grupo,
+    .hist-btn {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hist-container {
+        padding: 15px;
+    }
+
+    .hist-resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .hist-pag-link {
+        min-width: 36px;
+        height: 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hist-btn,
+    .hist-pag-link {
+        transition: none;
+    }
+}

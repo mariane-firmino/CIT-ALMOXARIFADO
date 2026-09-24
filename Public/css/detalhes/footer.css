@@ -1,0 +1,129 @@
+/* ==========================================================
+   Footer - CIT Almoxarifado
+   Desktop: 3 colunas (links | logo | contatos)
+   Tablet (<= 900px): logo em cima, links e contatos lado a lado
+   Celular (<= 600px): tudo em uma coluna, centralizado
+   ========================================================== */
+
+.site-footer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* minmax(0, ...) impede que textos longos estiquem a coluna */
+    align-items: center;
+    gap: 20px;
+    padding: 24px 15px;
+    background: #17443e;
+    color: #ffffff;
+}
+
+/* ---------- Links ---------- */
+.site-footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-self: start;
+    gap: 8px;
+}
+
+.site-footer__links a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.site-footer__links a:hover {
+    opacity: 0.75;
+}
+
+.site-footer__links a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ---------- Logo ---------- */
+.site-footer__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.site-footer__logo {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- Contatos ---------- */
+.site-footer__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-self: end;
+    gap: 2px;
+    min-width: 0;
+    text-align: right;
+}
+
+.site-footer__contact p {
+    margin: 0;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    /* e-mails e telefones longos quebram em vez de estourar */
+}
+
+.site-footer__contact-title {
+    font-weight: 700;
+}
+
+
+/* =========================
+   TABLET (até 900px)
+   ========================= */
+@media (max-width: 900px) {
+    .site-footer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 24px;
+    }
+
+    /* logo ocupa a linha de cima, inteira */
+    .site-footer__center {
+        grid-column: 1 / -1;
+        order: -1;
+    }
+
+    .site-footer__logo {
+        width: 160px;
+    }
+}
+
+
+/* =========================
+   CELULAR (até 600px)
+   ========================= */
+@media (max-width: 600px) {
+    .site-footer {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 22px 18px;
+        text-align: center;
+    }
+
+    .site-footer__links,
+    .site-footer__contact {
+        align-items: center;
+        justify-self: center;
+        text-align: center;
+    }
+
+    /* área de toque maior nos links */
+    .site-footer__links a {
+        padding: 4px 0;
+    }
+
+    .site-footer__logo {
+        width: 150px;
+    }
+}

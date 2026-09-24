@@ -1,0 +1,578 @@
+/* ==========================================================
+   Gerenciar Perfis - CIT Almoxarifado
+   Nenhum seletor de tag: tudo é estilizado por classe com prefixo cit-.
+   Blocos: cit-resumo, cit-painel, cit-filtros, cit-botao,
+           cit-tabela, cit-status, cit-paginacao
+   (reutilizáveis em outras telas)
+   ========================================================== */
+
+
+/* ---------- Cartões de resumo ---------- */
+.cit-resumo-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin-bottom: 32px;
+}
+
+.cit-resumo {
+    padding: 20px;
+    background: var(--cit-cor-superficie);
+    border: 1px solid var(--cit-cor-borda);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(19, 35, 29, 0.07);
+}
+
+.cit-resumo__topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cit-resumo__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.cit-resumo__icone--verde {
+    background: #e9f8ed;
+    color: #2f8f57;
+}
+
+.cit-resumo__icone--azul {
+    background: #e8f0ff;
+    color: #2563eb;
+}
+
+.cit-resumo__icone--amarelo {
+    background: #fff7d9;
+    color: #ca9a04;
+}
+
+.cit-resumo__icone--vermelho {
+    background: #ffe5e5;
+    color: #e5484d;
+}
+
+.cit-resumo__rotulo {
+    min-width: 0;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cit-resumo__valor {
+    margin: 18px 0 6px;
+    font-size: clamp(38px, 3.6vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.cit-resumo__descricao {
+    margin: 0;
+    font-size: 15px;
+    text-align: center;
+    color: var(--cit-cor-texto-suave);
+}
+
+
+/* ---------- Painel ---------- */
+.cit-painel {
+    padding: 24px;
+    background: var(--cit-cor-superficie);
+    border: 1px solid var(--cit-cor-borda);
+    border-radius: 16px;
+    box-shadow: var(--cit-sombra);
+}
+
+.cit-painel__titulo {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.cit-painel__barra {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 16px;
+    margin-bottom: 22px;
+}
+
+.cit-painel__vazio {
+    margin: 0;
+    padding: 36px 0;
+    text-align: center;
+    color: var(--cit-cor-texto-suave);
+}
+
+.cit-painel__rodape {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.cit-painel__info {
+    margin: 0;
+    font-size: 15px;
+    color: var(--cit-cor-texto-suave);
+}
+
+
+/* ---------- Busca e filtros ---------- */
+.cit-filtros {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-width: 0;
+}
+
+.cit-filtros__busca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 260px;
+    height: 46px;
+    padding: 0 14px;
+    background: var(--cit-cor-superficie);
+    border: 1px solid var(--cit-cor-borda-campo);
+    border-radius: 12px;
+    color: var(--cit-cor-texto-suave);
+}
+
+.cit-filtros__busca:focus-within,
+.cit-filtros__select:focus-visible {
+    outline: none;
+    border-color: var(--cit-cor-primaria);
+    box-shadow: 0 0 0 3px rgba(16, 158, 140, 0.18);
+}
+
+.cit-filtros__campo {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    color: var(--cit-cor-texto);
+}
+
+.cit-filtros__select {
+    flex: 0 1 190px;
+    height: 46px;
+    padding: 0 14px;
+    background: var(--cit-cor-superficie);
+    border: 1px solid var(--cit-cor-borda-campo);
+    border-radius: 12px;
+    font: inherit;
+    font-size: 16px;
+    color: var(--cit-cor-texto);
+}
+
+
+/* ---------- Botões ---------- */
+.cit-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 46px;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.cit-botao:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.4);
+    outline-offset: 2px;
+}
+
+.cit-botao--primario {
+    background: var(--cit-cor-primaria-escura);
+    color: #ffffff;
+}
+
+.cit-botao--primario:hover {
+    background: var(--cit-cor-primaria-hover);
+}
+
+.cit-botao--perigo {
+    background: var(--cit-cor-superficie);
+    border-color: #efc2bf;
+    color: var(--cit-cor-perigo);
+}
+
+.cit-botao--perigo:hover {
+    background: var(--cit-cor-perigo);
+    border-color: var(--cit-cor-perigo);
+    color: #ffffff;
+}
+
+.cit-botao--pequeno {
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+
+/* ---------- Tabela ---------- */
+.cit-tabela__envoltorio {
+    overflow-x: auto;
+    border: 1px solid var(--cit-cor-borda);
+    border-radius: 12px;
+}
+
+.cit-tabela {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+}
+
+.cit-tabela__cabecalho {
+    padding: 14px 18px;
+    background: #f1f7f5;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cit-cor-texto-suave);
+    white-space: nowrap;
+}
+
+.cit-tabela__linha {
+    border-top: 1px solid var(--cit-cor-borda);
+    transition: background 0.15s ease;
+}
+
+.cit-tabela__linha:hover {
+    background: #f8fbfa;
+}
+
+.cit-tabela__celula {
+    padding: 14px 18px;
+    font-size: 16px;
+}
+
+.cit-tabela__celula--nome {
+    font-weight: 600;
+}
+
+.cit-tabela__celula--acao {
+    width: 1%;
+    white-space: nowrap;
+}
+
+
+/* ---------- Selo de status ---------- */
+.cit-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 92px;
+    height: 32px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: #eef2f0;
+    color: #44544f;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cit-status--ativo {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.cit-status--inativo {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.cit-status--removido {
+    background: #ffe5e5;
+    color: var(--cit-cor-perigo);
+}
+
+
+/* ---------- Paginação ---------- */
+.cit-paginacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cit-paginacao__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 8px;
+    background: var(--cit-cor-superficie);
+    border: 1px solid var(--cit-cor-borda-campo);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--cit-cor-texto);
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.cit-paginacao__item:hover {
+    background: #eef5f2;
+}
+
+.cit-paginacao__item:focus-visible {
+    outline: 3px solid rgba(16, 158, 140, 0.4);
+    outline-offset: 2px;
+}
+
+.cit-paginacao__item--ativo,
+.cit-paginacao__item--ativo:hover {
+    background: var(--cit-cor-primaria-escura);
+    border-color: var(--cit-cor-primaria-escura);
+    color: #ffffff;
+}
+
+
+/* =========================
+   TABLET / CELULAR (até 720px)
+   Tabela vira uma lista de cartões
+   ========================= */
+@media (max-width: 720px) {
+    .cit-painel {
+        padding: 16px;
+    }
+
+    .cit-filtros {
+        flex-basis: 100%;
+    }
+
+    .cit-filtros__select {
+        flex: 1 1 140px;
+    }
+
+    .cit-painel__novo {
+        width: 100%;
+    }
+
+    .cit-tabela__envoltorio {
+        overflow: visible;
+        border: 0;
+    }
+
+    .cit-tabela,
+    .cit-tabela__corpo {
+        display: block;
+        min-width: 0;
+    }
+
+    .cit-tabela__topo {
+        display: none;
+    }
+
+    .cit-tabela__linha {
+        display: block;
+        margin-bottom: 12px;
+        padding: 6px 16px;
+        border: 1px solid var(--cit-cor-borda);
+        border-radius: 12px;
+    }
+
+    .cit-tabela__celula {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 8px 0;
+        text-align: right;
+        overflow-wrap: anywhere;
+    }
+
+    .cit-tabela__celula::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--cit-cor-texto-suave);
+        text-align: left;
+    }
+
+    .cit-tabela__celula--acao {
+        width: auto;
+    }
+
+    .cit-painel__rodape {
+        flex-direction: column;
+    }
+}
+
+
+/* ---------- Complementos: aviso, botão de status ---------- */
+.cit-aviso {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.cit-aviso--sucesso {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.cit-aviso--erro {
+    background: #ffe5e5;
+    color: var(--cit-cor-perigo);
+}
+
+.cit-botao--contorno {
+    background: var(--cit-cor-superficie);
+    border-color: var(--cit-cor-borda-campo);
+    color: var(--cit-cor-texto);
+}
+
+.cit-botao--contorno:hover {
+    background: #eef5f2;
+}
+
+.cit-botao:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cit-tabela__form {
+    margin: 0;
+}
+
+.cit-tabela__botao-status {
+    min-width: 112px;
+    /* evita o botão mudar de largura entre "Inativar" e "Ativar" */
+}
+
+
+/* ---------- Menu suspenso (botão "Novo perfil") ---------- */
+.cit-suspenso {
+    position: relative;
+    display: inline-block;
+}
+
+.cit-suspenso__gatilho {
+    width: 100%;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cit-suspenso__gatilho::-webkit-details-marker {
+    display: none;
+}
+
+.cit-suspenso__seta {
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+}
+
+.cit-suspenso[open] .cit-suspenso__seta {
+    transform: rotate(180deg);
+}
+
+.cit-usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.cit-usuario__foto {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #edf6f1;
+}
+
+.cit-usuario__foto--iniciais {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #dff5ef;
+    color: #0a7f70;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cit-usuario__nome {
+    overflow-wrap: anywhere;
+}
+
+.cit-suspenso__lista {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 10;
+    min-width: 200px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--cit-cor-superficie);
+    border: 1px solid var(--cit-cor-borda);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(19, 35, 29, 0.14);
+}
+
+.cit-suspenso__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cit-cor-texto);
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+
+.cit-suspenso__item:hover {
+    background: #eef5f2;
+}
+
+.cit-suspenso__item:focus-visible {
+    outline: 2px solid var(--cit-cor-primaria);
+    outline-offset: -2px;
+}
+
+@media (max-width: 720px) {
+    .cit-suspenso {
+        display: block;
+    }
+
+    .cit-suspenso__lista {
+        left: 0;
+        right: 0;
+    }
+}

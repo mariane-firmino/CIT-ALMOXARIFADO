@@ -1,0 +1,36 @@
+/* ==========================================================
+   Base global - CIT Almoxarifado
+   Carregue antes de todos os outros CSS.
+   ========================================================== */
+
+:root {
+    color-scheme: light;
+    font-family: 'Inria Sans', sans-serif;
+
+    --cit-cor-fundo: #f6f9f8;
+    --cit-cor-superficie: #ffffff;
+    --cit-cor-texto: #14221f;
+    --cit-cor-texto-suave: #5b6b66;
+    --cit-cor-borda: #e2ebe7;
+    --cit-cor-borda-campo: #d3ddd9;
+
+    --cit-cor-primaria: #109e8c;          /* destaques, foco, marcadores */
+    --cit-cor-primaria-escura: #0a7f70;   /* fundo de botões (contraste 4.9:1 com branco) */
+    --cit-cor-primaria-hover: #086a5e;
+    --cit-cor-perigo: #b42318;
+
+    --cit-sombra: 0 2px 10px rgba(19, 35, 29, 0.06);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--cit-cor-fundo);
+    color: var(--cit-cor-texto);
+}

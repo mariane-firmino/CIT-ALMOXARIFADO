@@ -1,0 +1,415 @@
+/* ==========================================================
+   Tela: Editar Produto
+   Prefixo único: editprod-   (nenhum seletor de tag nesta folha)
+   Sidebar, footer, body, reset, a, h1 etc. ficam no CSS do layout
+   (menu / footer / base), não aqui.
+   ========================================================== */
+
+.editprod-container {
+    --editprod-verde: #109e8c;
+    --editprod-verde-escuro: #0a7f70;
+    --editprod-texto: #10261f;
+    --editprod-texto-suave: #4d6d5e;
+    --editprod-superficie: #ffffff;
+    --editprod-superficie-alt: #f7fbf9;
+    --editprod-borda: #d9e8e2;
+
+    padding: 36px 48px 90px;
+    color: var(--editprod-texto);
+    font-family: 'Inria Sans', sans-serif;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.editprod-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.editprod-titulo-grupo {
+    display: flex;
+    gap: 16px;
+}
+
+.editprod-titulo-marca {
+    flex-shrink: 0;
+    width: 6px;
+    height: 48px;
+    border-radius: 5px;
+    background: var(--editprod-verde);
+}
+
+.editprod-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(25px, 2.4vw, 40px);
+    font-weight: 700;
+}
+
+.editprod-subtitulo {
+    margin: 10px 0 0;
+    font-size: 18px;
+}
+
+.editprod-logo {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* ---------- Painel ---------- */
+
+.editprod-painel {
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--editprod-superficie);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(16, 38, 31, 0.08);
+}
+
+.editprod-painel-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.editprod-painel-titulo {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.editprod-fechar {
+    display: flex;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.editprod-fechar:hover {
+    background: #f0f5f3;
+}
+
+.editprod-fechar-icone {
+    width: 22px;
+}
+
+/* ---------- Erros ---------- */
+
+.editprod-erros {
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: #ffe5e5;
+    border-radius: 12px;
+    color: #b42318;
+}
+
+.editprod-erros-titulo {
+    margin: 0 0 6px;
+    font-weight: 700;
+}
+
+.editprod-erros-lista {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.editprod-erros-item {
+    margin: 2px 0;
+    font-size: 15px;
+}
+
+/* ---------- Imagem ---------- */
+
+.editprod-imagem-bloco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.editprod-imagem-caixa {
+    display: grid;
+    place-items: center;
+    width: 240px;
+    height: 240px;
+    overflow: hidden;
+    background: #edf6f1;
+    border-radius: 18px;
+}
+
+.editprod-imagem {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.editprod-imagem-ajuda {
+    margin: 0;
+    color: var(--editprod-texto-suave);
+    font-size: 13px;
+}
+
+/* Botão "Substituir imagem": o input fica por cima, invisível, mas focável */
+.editprod-btn-secundario {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border: 2px solid var(--editprod-verde);
+    border-radius: 20px;
+    background: #fff;
+    color: var(--editprod-verde);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.editprod-btn-secundario:hover {
+    background: #f0faf8;
+}
+
+.editprod-btn-secundario:focus-within {
+    outline: 2px solid var(--editprod-verde);
+    outline-offset: 3px;
+}
+
+.editprod-arquivo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* ---------- Formulário ---------- */
+
+.editprod-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.editprod-linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.editprod-grupo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.editprod-rotulo {
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.editprod-campo {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--editprod-superficie-alt);
+    border: 1px solid var(--editprod-borda);
+    border-radius: 14px;
+    color: var(--editprod-texto);
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editprod-campo:focus {
+    outline: none;
+    border-color: var(--editprod-verde);
+    box-shadow: 0 0 0 4px rgba(16, 158, 140, 0.12);
+}
+
+/* Campos que não podem ser alterados (nome e categoria) */
+.editprod-campo-leitura {
+    background: #eef3f1;
+    color: var(--editprod-texto-suave);
+    cursor: not-allowed;
+}
+
+.editprod-campo-area {
+    resize: vertical;
+}
+
+.editprod-ajuda {
+    margin: 6px 0 0;
+    color: var(--editprod-texto-suave);
+    font-size: 13px;
+}
+
+/* ---------- Ações ---------- */
+
+.editprod-acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.editprod-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
+    padding: 14px 28px;
+    border: 2px solid var(--editprod-verde);
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.editprod-btn-cancelar {
+    background: #fff;
+    color: var(--editprod-verde);
+}
+
+.editprod-btn-cancelar:hover {
+    background: #f0faf8;
+}
+
+.editprod-btn-salvar {
+    background: var(--editprod-verde);
+    color: #fff;
+}
+
+.editprod-btn-salvar:hover {
+    background: var(--editprod-verde-escuro);
+    border-color: var(--editprod-verde-escuro);
+}
+
+.editprod-btn:focus-visible {
+    outline: 2px solid var(--editprod-verde);
+    outline-offset: 3px;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (min-width: 1600px) {
+    .editprod-container {
+        max-width: 1700px;
+        margin: 0 auto;
+        padding: 45px 70px 90px;
+    }
+
+    .editprod-painel {
+        max-width: 900px;
+    }
+
+    .editprod-logo {
+        width: 135px;
+    }
+}
+
+@media (max-width: 992px) {
+    .editprod-container {
+        padding: 30px 24px 70px;
+    }
+
+    .editprod-logo {
+        width: 105px;
+    }
+}
+
+@media (max-width: 768px) {
+    .editprod-container {
+        padding: 28px 20px 60px;
+    }
+
+    .editprod-painel {
+        padding: 25px;
+    }
+
+    .editprod-linha {
+        grid-template-columns: 1fr;
+    }
+
+    .editprod-subtitulo {
+        font-size: 16px;
+    }
+
+    .editprod-imagem-caixa {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .editprod-container {
+        padding: 22px 15px 45px;
+    }
+
+    .editprod-cabecalho {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .editprod-titulo-grupo {
+        gap: 12px;
+    }
+
+    .editprod-titulo-marca {
+        height: 38px;
+    }
+
+    .editprod-subtitulo {
+        font-size: 15px;
+    }
+
+    .editprod-logo {
+        width: 85px;
+    }
+
+    .editprod-painel {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .editprod-painel-titulo {
+        font-size: 22px;
+    }
+
+    .editprod-imagem-caixa {
+        width: 170px;
+        height: 170px;
+    }
+
+    .editprod-campo {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .editprod-acoes {
+        flex-direction: column-reverse;
+        gap: 14px;
+    }
+
+    .editprod-btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .editprod-btn,
+    .editprod-campo {
+        transition: none;
+    }
+}

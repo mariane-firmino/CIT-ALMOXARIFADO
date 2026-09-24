@@ -1,0 +1,336 @@
+/* =========================================
+    CADASTRO DE COORDENADOR - SACIT
+   ========================================= */
+
+.sacit-coordenador-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0a7f70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+
+/* =========================================
+    CONTAINER PRINCIPAL
+   ========================================= */
+
+.sacit-coordenador-wrapper {
+    width: 100%;
+    max-width: 1036px;
+    min-height: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+    LADO DO FORMULÁRIO
+   ========================================= */
+
+.sacit-coordenador-form-side {
+    background-color: #075248;
+    padding: 34px 40px 26px;
+}
+
+
+.sacit-coordenador-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.sacit-coordenador-title {
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+    FORMULÁRIO
+   ========================================= */
+
+.sacit-coordenador-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+
+.sacit-coordenador-field {
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+
+.sacit-coordenador-label {
+    display: block;
+    color: #ffffff;
+    font-size: clamp(14px, 1.6vw, 18px);
+    font-weight: 400;
+    margin-bottom: 7px;
+}
+
+
+.sacit-coordenador-input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    font-size: 15px;
+}
+
+
+.sacit-coordenador-input:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px rgba(61, 58, 58, 0.3);
+}
+
+
+/* =========================================
+    BOTÃO
+   ========================================= */
+
+.sacit-coordenador-submit {
+    width: 100%;
+    max-width: 450px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px auto 25px;
+    background-color: #ff2f2f;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.sacit-coordenador-submit:hover {
+    background-color: #e52626;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+    LINKS
+   ========================================= */
+
+.sacit-coordenador-footer {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.sacit-coordenador-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.sacit-coordenador-link {
+    color: #2384fa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+
+.sacit-coordenador-link:hover {
+    color: #5ba3ff;
+    text-decoration: underline;
+}
+
+
+/* =========================================
+    LADO DA LOGO
+   ========================================= */
+
+.sacit-coordenador-logo-side {
+    min-height: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+
+.sacit-coordenador-logo {
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+
+/* =========================================
+    TABLET
+   ========================================= */
+
+@media (max-width: 991.98px) {
+
+    .sacit-coordenador-form-side {
+        padding: 30px 25px;
+    }
+
+    .sacit-coordenador-logo-side {
+        padding: 25px;
+    }
+
+    .sacit-coordenador-logo {
+        max-width: 330px;
+        max-height: 330px;
+    }
+
+}
+
+
+/* =========================================
+    CELULAR
+   ========================================= */
+
+@media (max-width: 767.98px) {
+
+    .sacit-coordenador-page {
+        padding: 20px;
+    }
+
+    .sacit-coordenador-wrapper {
+        max-width: 520px;
+        min-height: auto;
+        border-radius: 16px;
+    }
+
+    .sacit-coordenador-logo-side {
+        order: -1;
+        min-height: 210px;
+        padding: 25px;
+    }
+
+    .sacit-coordenador-logo {
+        max-width: 210px;
+        max-height: 210px;
+    }
+
+    .sacit-coordenador-form-side {
+        padding: 30px 25px;
+    }
+
+    .sacit-coordenador-title {
+        margin-bottom: 22px;
+    }
+
+}
+
+
+/* =========================================
+    CELULAR PEQUENO
+   ========================================= */
+
+@media (max-width: 575.98px) {
+
+    .sacit-coordenador-page {
+        padding: 15px;
+    }
+
+    .sacit-coordenador-wrapper {
+        border-radius: 14px;
+    }
+
+    .sacit-coordenador-form-side {
+        padding: 25px 18px;
+    }
+
+    .sacit-coordenador-logo-side {
+        min-height: 175px;
+        padding: 20px;
+    }
+
+    .sacit-coordenador-logo {
+        max-width: 175px;
+        max-height: 175px;
+    }
+
+    .sacit-coordenador-title {
+        font-size: 30px;
+    }
+
+    .sacit-coordenador-input {
+        height: 42px;
+    }
+
+    .sacit-coordenador-submit {
+        height: 44px;
+    }
+
+}
+
+
+/* =========================================
+    CELULAR MUITO PEQUENO
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    .sacit-coordenador-page {
+        padding: 12px;
+    }
+
+    .sacit-coordenador-form-side {
+        padding: 22px 15px;
+    }
+
+    .sacit-coordenador-logo-side {
+        min-height: 150px;
+    }
+
+    .sacit-coordenador-logo {
+        max-width: 145px;
+        max-height: 145px;
+    }
+
+    .sacit-coordenador-title {
+        font-size: 26px;
+    }
+
+    .sacit-coordenador-label {
+        font-size: 15px;
+    }
+
+    .sacit-coordenador-input {
+        height: 40px;
+    }
+
+    .sacit-coordenador-submit {
+        height: 42px;
+    }
+
+}

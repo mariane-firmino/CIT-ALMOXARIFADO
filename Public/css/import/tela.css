@@ -1,0 +1,20 @@
+/* ==========================================================
+   Layout da página: mantém o footer colado na base da tela,
+   mesmo quando o conteúdo é curto (ex.: Notificações vazia).
+   Afeta a página toda, não só o footer — por isso fica aqui,
+   que já é carregado em todas as telas.
+   ========================================================== */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto; /* ocupa o espaço sobrando */
+}
+
+.site-footer {
+    flex-shrink: 0; /* nunca é espremido */
+}

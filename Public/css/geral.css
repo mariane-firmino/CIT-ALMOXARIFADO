@@ -1,0 +1,95 @@
+/* Importar css da pasta de import */
+/* letras */
+@import url('import/letra.css');
+
+/* Login */
+@import url('pag/login.css');
+
+/* Usuario */
+@import url('pag/usuario.css');
+
+/* cadastro */
+@import url('pag/cadastro.css');
+
+/* Servidor */
+@import url('pag/cadServ.css');
+
+/* Estagiario */
+@import url('pag/cadEst.css');
+
+/* Esqueci Senha */
+@import url('pag/ems.css');
+
+/* Home */
+@import url('past2/home.css');
+
+/* Footer */
+@import url('detalhes/footer.css');
+
+/* Menu */
+@import url('detalhes/menu.css');
+@import url('detalhes/cabecalho.css');
+
+/* Gerenciar Perfil */
+@import url('past2/gerenciarP.css');
+@import url('detalhes/base.css');
+
+/* Notificações */
+@import url('past2/notificacao.css');
+
+/* Perfil */
+@import url('past2/perfil.css');
+
+/* Editar Perfil */
+@import url('past2/editarPerfil.css');
+
+/* Alterar Senha */
+@import url('past2/alterarSenha.css');
+
+/* Produtos */
+@import url('past3/produto.css');
+
+/* Estoque */
+@import url('past3/estoque.css');
+
+/* Cadastrar Produto */
+@import url('past3/cadastrar.css');
+
+/* Detalhes do Produto */
+@import url('past3/detalhe.css');
+
+/* Editar Produto */
+@import url('past3/editar.css');
+
+/* Consultar Produto */
+@import url('past4/consultar.css');
+
+/* Analisar Solicitação */
+@import url('past4/solicitacao.css');
+
+/* Realizar Solicitação */
+@import url('past4/realizarS.css');
+
+/* Ver solicitação */
+@import url('past4/ver.css');
+
+/* Minhas Solicitações */
+@import url('past4/minhasS.css');
+
+/* Histórico */
+@import url('past5/historico.css');
+
+/* Cadastro */
+@import url('past5/cadastro.css');
+
+/* Sobre Nós */
+@import url('past5/sobre.css');
+
+/* Redefinir Senha */
+@import url('past5/redefinirS.css');
+
+/* Links das páginas */
+@import url('detalhes/links.css');
+
+/* Tela geral */
+@import url('import/tela.css');

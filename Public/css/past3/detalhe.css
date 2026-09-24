@@ -1,0 +1,343 @@
+/* ==========================================================
+   Tela: Detalhes do Produto
+   Prefixo único: detprod-   (nenhum seletor de tag nesta folha)
+   Sidebar, footer, body, reset, a, h1 etc. ficam no CSS do layout
+   (menu / footer / base), não aqui.
+   ========================================================== */
+
+.detprod-container {
+    --detprod-verde: #109e8c;
+    --detprod-verde-escuro: #0a7f70;
+    --detprod-texto: #10261f;
+    --detprod-texto-suave: #4d6d5e;
+    --detprod-superficie: #ffffff;
+    --detprod-superficie-alt: #f7fbf9;
+    --detprod-borda: #e6f4ef;
+    --detprod-perigo: #b42318;
+    --detprod-perigo-fundo: #ffe5e5;
+
+    padding: 35px;
+    background: #f6f9f8;
+    color: var(--detprod-texto);
+    font-family: 'Inria Sans', sans-serif;
+    line-height: 1.6;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.detprod-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.detprod-titulo-grupo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.detprod-titulo-marca {
+    flex-shrink: 0;
+    width: 6px;
+    height: 64px;
+    border-radius: 6px;
+    background: var(--detprod-verde);
+}
+
+.detprod-titulo {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 2.4vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.detprod-subtitulo {
+    max-width: 520px;
+    margin: 6px 0 0;
+    color: var(--detprod-texto-suave);
+}
+
+.detprod-logo {
+    width: 132px;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* ---------- Cartão principal ---------- */
+
+.detprod-painel {
+    display: flex;
+    justify-content: center;
+}
+
+.detprod-cartao {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+    width: 100%;
+    max-width: 1120px;
+    padding: 20px;
+    background: var(--detprod-superficie);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(16, 38, 31, 0.1);
+}
+
+.detprod-coluna-esq,
+.detprod-coluna-dir {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* ---------- Imagem do produto ---------- */
+
+.detprod-imagem-box {
+    display: grid;
+    place-items: center;
+    min-height: 300px;
+    overflow: hidden;
+    background: var(--detprod-superficie-alt);
+    border-radius: 18px;
+}
+
+.detprod-imagem {
+    display: block;
+    max-width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+}
+
+/* ---------- QR Code ---------- */
+
+.detprod-qr {
+    padding: 18px;
+    background: var(--detprod-superficie-alt);
+    border: 1px solid var(--detprod-borda);
+    border-radius: 18px;
+    text-align: center;
+}
+
+.detprod-qr-titulo {
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.detprod-qr-imagem {
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 14px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(16, 38, 31, 0.08);
+    image-rendering: pixelated;
+    /* mantém os módulos do QR nítidos */
+}
+
+.detprod-qr-vazio {
+    margin: 0;
+    color: var(--detprod-texto-suave);
+    font-size: 14px;
+}
+
+.detprod-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 14px;
+    background: var(--detprod-verde);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.detprod-btn:hover {
+    background: var(--detprod-verde-escuro);
+}
+
+.detprod-btn:focus-visible {
+    outline: 2px solid var(--detprod-verde);
+    outline-offset: 3px;
+}
+
+/* ---------- Coluna direita ---------- */
+
+.detprod-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.detprod-topo-titulo {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.detprod-fechar {
+    display: flex;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.detprod-fechar:hover {
+    background: #f0f5f3;
+}
+
+.detprod-fechar-icone {
+    width: 22px;
+}
+
+.detprod-bloco {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px;
+    background: var(--detprod-superficie-alt);
+    border: 1px solid var(--detprod-borda);
+    border-radius: 18px;
+}
+
+/* ---------- Lista de informações ---------- */
+
+.detprod-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+}
+
+.detprod-info-linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.detprod-info-rotulo {
+    font-weight: 700;
+}
+
+.detprod-info-valor {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.detprod-status {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.detprod-status-ok {
+    background: #dff5ef;
+    color: var(--detprod-verde-escuro);
+}
+
+.detprod-status-baixo {
+    background: var(--detprod-perigo-fundo);
+    color: var(--detprod-perigo);
+}
+
+/* ---------- Descrição ---------- */
+
+.detprod-descricao-titulo {
+    margin: 0 0 4px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.detprod-descricao-texto {
+    margin: 0;
+    color: var(--detprod-texto-suave);
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1200px) {
+    .detprod-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .detprod-container {
+        padding: 25px;
+    }
+
+    .detprod-logo {
+        width: 120px;
+    }
+
+    .detprod-cartao {
+        grid-template-columns: 1fr;
+    }
+
+    /* No celular, as informações vêm antes da imagem e do QR */
+    .detprod-coluna-dir {
+        order: -1;
+    }
+
+    .detprod-coluna-esq {
+        align-items: center;
+    }
+
+    .detprod-imagem-box,
+    .detprod-qr {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 480px) {
+    .detprod-container {
+        padding: 15px 10px;
+    }
+
+    .detprod-titulo {
+        font-size: 24px;
+    }
+
+    .detprod-subtitulo {
+        font-size: 14px;
+    }
+
+    .detprod-titulo-marca {
+        height: 46px;
+    }
+
+    .detprod-logo {
+        width: 95px;
+    }
+
+    .detprod-cartao {
+        padding: 12px;
+    }
+
+    .detprod-topo-titulo {
+        font-size: 22px;
+    }
+
+    .detprod-bloco {
+        padding: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .detprod-btn {
+        transition: none;
+    }
+}
