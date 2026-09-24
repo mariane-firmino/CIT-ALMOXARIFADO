@@ -15,8 +15,8 @@ class Email
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'mariane.firmino@estudante.ifro.edu.br';
-            $mail->Password   = 'xgar xglw joay lndt';
+            $mail->Username   = 'EMAIL';
+            $mail->Password   = 'SENHA_DO_EMAIL';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
